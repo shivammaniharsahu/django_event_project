@@ -1,0 +1,48 @@
+{% extends "event/event_base.html" %}
+<div class="jumbotron">
+{% block body_block %}
+
+    <h1>
+        Welcome to a Event Details!
+    </h1>
+    <h2>
+        Event Details:
+    </h2>
+    <p>
+        Name:{{ event_detail.event_name }}
+    </p>
+    <p>
+       Venue : {{ event_detail.venue }}
+    </p>
+    <p>
+        Event Date : {{ event_detail.venue }}
+    </p>
+
+    <p>
+        Event Description : {{ event_detail.event_description}}
+    </p>
+
+    <p>
+        Event Duration : {{ event_detail.event_duration }}
+    </p>
+
+    <p>
+        Event_Organiser : {{ event_detail.event_organiser }}
+    </p>
+    <h3>    Participant Details:   </h3>
+    {% for participant in event_detail.participant.all %}
+        <p>Name : {{ participant.name }} <br>
+            College Name : {{ participant.college_name }} <br>
+            Contact Number : {{ participant.contact_number }}<br>
+            Event Name : {{ participant.event_name }}<br>
+
+        </p>
+    {% endfor %}
+    <div class="container">
+        <p><a class="btn btn-warning"  href="{% url 'event:update' pk=event_detail.pk %}">Update</a></p>
+        <p><a class="btn btn-warning"  href="{% url 'event:create' pk=event_detail.pk %}">Create</a></p>
+       <p><a class="btn btn-warning"  href="{% url 'event:delete' pk=event_detail.pk %}">Delete</a></p>
+
+    </div>
+{% endblock %}
+</div>

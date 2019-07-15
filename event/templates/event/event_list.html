@@ -1,0 +1,19 @@
+{% extends "event/event_base.html" %}
+{% block body_block %}
+
+    <h1>
+        Welcome to a list of all the Events!
+    </h1>
+    <ol>
+        {% for event in events %}
+            <h2>
+                <li>
+                <a href="{{ event.id }}">
+                    {{ event.event_name }}
+                </a>
+                </li>
+            </h2>
+        {% endfor %}
+    </ol>
+
+{% endblock %}
